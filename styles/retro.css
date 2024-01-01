@@ -1,9 +1,10 @@
 @font-face {
 	font-family: "Nokia Cellphone FC Small";
-	src: url("assets/misc/nokiafc22.eot?#iefix") format("embedded-opentype"),
-		url("assets/misc/nokiafc22.woff") format("woff"),
-		url("assets/misc/nokiafc22.ttf") format("truetype"),
-		url("assets/misc/nokiafc22.svg#Nokia%20Cellphone%20FC%20Small")
+	src: url("/tiny_gardens/assets/misc/nokiafc22.eot?#iefix")
+			format("embedded-opentype"),
+		url("/tiny_gardens/assets/misc/nokiafc22.woff") format("woff"),
+		url("/tiny_gardens/assets/misc/nokiafc22.ttf") format("truetype"),
+		url("/tiny_gardens/assets/misc/nokiafc22.svg#Nokia%20Cellphone%20FC%20Small")
 			format("svg");
 	font-weight: normal;
 	font-style: normal;

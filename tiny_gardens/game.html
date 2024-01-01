@@ -1,121 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Tiny Gardens - Online</title>
+		<link rel="stylesheet" href="/styles/retro.css" />
+		<link rel="shortcut icon" type="image/png" href="./favicon.png" />
 
-<head>
-  <meta charset="utf-8" />
-  <title>Tiny Gardens - Online</title>
-  <link rel="stylesheet" href="stylesheet.css" />
-  <link rel="shortcut icon" type="image/png" href="./favicon.png" />
+		<meta
+			id="viewport"
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script type="text/javascript" src="./Tiny-Gardens.js"></script>
 
-  <meta id="viewport" name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <script type="text/javascript" src="./Tiny-Gardens.js"></script>
+		<script>
+			window.addEventListener(
+				"touchmove",
+				function (event) {
+					event.preventDefault();
+				},
+				{ capture: true, passive: false }
+			);
+			if (
+				typeof window.devicePixelRatio != "undefined" &&
+				window.devicePixelRatio > 2
+			) {
+				var meta = document.getElementById("viewport");
+				meta.setAttribute(
+					"content",
+					"width=device-width, initial-scale=" +
+						2 / window.devicePixelRatio +
+						", user-scalable=no"
+				);
+			}
 
-  <script>
-    window.addEventListener(
-      "touchmove",
-      function (event) {
-        event.preventDefault();
-      },
-      { capture: true, passive: false }
-    );
-    if (
-      typeof window.devicePixelRatio != "undefined" &&
-      window.devicePixelRatio > 2
-    ) {
-      var meta = document.getElementById("viewport");
-      meta.setAttribute(
-        "content",
-        "width=device-width, initial-scale=" +
-        2 / window.devicePixelRatio +
-        ", user-scalable=no"
-      );
-    }
+			//Used for the tabs in info-tabs. I was thinking of using bootstrap here, but decided that a bit of JS was all I needed for something so simple.
+			function openTab(tabName) {
+				var ii;
+				var thisElement = document.getElementsByClassName("tabText");
+				for (ii = 0; ii < thisElement.length; ii++) {
+					thisElement[ii].style.display = "none";
+				}
+				document.getElementById(tabName).style.display = "block";
+			}
+		</script>
+	</head>
 
-    //Used for the tabs in info-tabs. I was thinking of using bootstrap here, but decided that a bit of JS was all I needed for something so simple.
-    function openTab(tabName) {
-      var ii;
-      var thisElement = document.getElementsByClassName("tabText");
-      for (ii = 0; ii < thisElement.length; ii++) {
-        thisElement[ii].style.display = "none";
-      }
-      document.getElementById(tabName).style.display = "block";
-    }
-  </script>
-</head>
-
-<body>
-  <div class="siteContainer">
-    <div class="hasBorder" id="infoTabs">
-      <div id="infoTabTabs"> <!--I will not pick a better name.-->
-        <button class="tabButton hasBorder" onclick="openTab('infoControlsCredits')">Controls</button>
-        <button class="tabButton hasBorder" onclick="openTab('infoFaq')">FAQ</button>
-        <button class="tabButton hasBorder" onclick="openTab('infoLinks')">Links</button>
-      </div>
-      <hr>
-      <div id="infoControlsCredits" class="tabText">
-        <h1>Controls:</h1>
-        <ul>
-          <li>Draw: Click</li>
-          <li>Erase: Right Click</li>
-          <li>Change Tile: Q/E or L/R Arrows</li>
-          <li>Move Camera: WASD</li>
-          <li>Music & SFX Options: O</li>
-          <li>Hide UI: H</li>
-        </ul>
-        <p>The game auto-saves every five seconds.</p>
-        <hr>
-        <h1>Credits:</h1>
-        <h3>Programming & Art</h3>
-        <p>Eris / <img src="webassets/discord.png"> vulpicula</p>
-        <!--I wish I knew how to center this on the line better.-->
-        <h3>Audio & Music</h3>
-        <p>Sheep / <img src="webassets/discord.png"> sheepgoat</p>
-        <h3>Special Thanks</h3>
-        <p>Tuck, the Horizons Community, the <a href="https://discord.com/invite/0uEuWH3spjck73Lo" target="_blank">Haxe
-            Discord</a>, and
-          my fan (It was hot.)</p>
-      </div>
-      <div id="infoFaq" class="tabText" style="display:none">
-        <h1>FAQ:</h1>
-        <h3>What IS this?</h3>
-        <p>A rather early version of a god game. The HTML5 port is fairly new, and a little bit jankier than the
-          standalone game, which is by default pretty janky. Expect (and please report) any bugs.</p>
-        <h3>Who made this?</h3>
-        <p>I did, mostly. Others listed in the credits also assisted.</p>
-        <h3>What language is this in?</h3>
-        <p><a href="https://haxe.org" target="_blank">Haxe</a>, although the libraries are mostly <a
-            href="https://haxeflixel.com" target="_blank">HaxeFlixel</a>.</p>
-        <h3>This is terrible.</h3>
-        <p>Ask in the form of a question.</p>
-        <h3>This is terrible?</h3>
-        <p><a href="webassets/badgame.jpg" target="_blank">Haha yes.</a></p>
-      </div>
-      <div id="infoLinks" class="tabText" style="display:none">
-        <h1>Links:</h1>
-        <h3>Downloads:</h3>
-        <ul>
-          <li>Windows: [Insert here later.]</li>
-          <li>Mac: <a href="https://www.youtube.com/watch?v=QT13kk8HDDo">Here!</a></li>
-          <li>Linux: [Insert here later.]</li>
-        </ul>
-        <hr>
-        <p>Actual downloads will likely be added once Alpha 1.0.0 is finished. This site is basically a build I cobbled
-          together as a test, and then proceeded to get really invested in.<br><br>ETA on that is
-          Winter Break!</p>
-      </div>
-    </div>
-    <div class="hasBorder" id="openFL" oncontextmenu="return false;">
-      <noscript>This webpage makes extensive use of JavaScript. Please enable
-        JavaScript in your web browser to view this page.</noscript>
-      <script>
-        lime.embed("Tiny-Gardens", "openFL", 1440, 900, {
-          parameters: {},
-        });
-      </script>
-    </div>
-  </div>
-</body>
-
+	<body>
+		<div class="siteContainer">
+			<div class="hasBorder" id="infoTabs">
+				<div id="infoTabTabs">
+					<!--I will not pick a better name.-->
+					<button
+						class="tabButton hasBorder"
+						onclick="openTab('infoControlsCredits')"
+					>
+						Controls
+					</button>
+					<button class="tabButton hasBorder" onclick="openTab('infoFaq')">
+						FAQ
+					</button>
+					<button class="tabButton hasBorder" onclick="openTab('infoLinks')">
+						Links
+					</button>
+				</div>
+				<hr />
+				<div id="infoControlsCredits" class="tabText">
+					<h1>Controls:</h1>
+					<ul>
+						<li>Draw: Click</li>
+						<li>Erase: Right Click</li>
+						<li>Change Tile: Q/E or L/R Arrows</li>
+						<li>Move Camera: WASD</li>
+						<li>Music & SFX Options: O</li>
+						<li>Hide UI: H</li>
+					</ul>
+					<p>The game auto-saves every five seconds.</p>
+					<hr />
+					<h1>Credits:</h1>
+					<h3>Programming & Art</h3>
+					<p>Eris / <img src="webassets/discord.png" /> vulpicula</p>
+					<!--I wish I knew how to center this on the line better.-->
+					<h3>Audio & Music</h3>
+					<p>Sheep / <img src="webassets/discord.png" /> sheepgoat</p>
+					<h3>Special Thanks</h3>
+					<p>
+						Tuck, the Horizons Community, the
+						<a
+							href="https://discord.com/invite/0uEuWH3spjck73Lo"
+							target="_blank"
+							>Haxe Discord</a
+						>, and my fan (It was hot.)
+					</p>
+				</div>
+				<div id="infoFaq" class="tabText" style="display: none">
+					<h1>FAQ:</h1>
+					<h3>What IS this?</h3>
+					<p>
+						A rather early version of a god game. The HTML5 port is fairly new,
+						and a little bit jankier than the standalone game, which is by
+						default pretty janky. Expect (and please report) any bugs.
+					</p>
+					<h3>Who made this?</h3>
+					<p>I did, mostly. Others listed in the credits also assisted.</p>
+					<h3>What language is this in?</h3>
+					<p>
+						<a href="https://haxe.org" target="_blank">Haxe</a>, although the
+						libraries are mostly
+						<a href="https://haxeflixel.com" target="_blank">HaxeFlixel</a>.
+					</p>
+					<h3>This is terrible.</h3>
+					<p>Ask in the form of a question.</p>
+					<h3>This is terrible?</h3>
+					<p><a href="webassets/badgame.jpg" target="_blank">Haha yes.</a></p>
+				</div>
+				<div id="infoLinks" class="tabText" style="display: none">
+					<h1>Links:</h1>
+					<h3>Downloads:</h3>
+					<ul>
+						<li>Windows: [Insert here later.]</li>
+						<li>
+							Mac:
+							<a href="https://www.youtube.com/watch?v=QT13kk8HDDo">Here!</a>
+						</li>
+						<li>Linux: [Insert here later.]</li>
+					</ul>
+					<hr />
+					<p>
+						Actual downloads will likely be added once Alpha 1.0.0 is finished.
+						This site is basically a build I cobbled together as a test, and
+						then proceeded to get really invested in.<br /><br />ETA on that is
+						Winter Break!
+					</p>
+				</div>
+			</div>
+			<div class="hasBorder" id="openFL" oncontextmenu="return false;">
+				<noscript
+					>This webpage makes extensive use of JavaScript. Please enable
+					JavaScript in your web browser to view this page.</noscript
+				>
+				<script>
+					lime.embed("Tiny-Gardens", "openFL", 1440, 900, {
+						parameters: {},
+					});
+				</script>
+			</div>
+		</div>
+	</body>
 </html>
