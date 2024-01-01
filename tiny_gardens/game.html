@@ -14,6 +14,39 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<script type="text/javascript" src="./Tiny-Gardens.js"></script>
 
+		<style>
+			.siteContainer {
+				padding: 1rem;
+				display: flex;
+				flex-direction: row;
+				margin: auto;
+			}
+
+			#sideBar {
+				margin-left: auto;
+				width: 25rem;
+				margin-right: 0.2rem;
+				padding: 1rem;
+			}
+
+			#infoTabTabs {
+				display: flex;
+				justify-content: space-evenly;
+			}
+
+			#returnButton {
+				display: flex;
+				justify-content: space-evenly;
+			}
+
+			#openFL {
+				margin-right: auto;
+				background: black;
+				height: 900px;
+				padding: 1rem;
+			}
+		</style>
+
 		<script>
 			window.addEventListener(
 				"touchmove",
@@ -49,7 +82,7 @@
 
 	<body>
 		<div class="siteContainer">
-			<div class="hasBorder" id="infoTabs">
+			<div class="hasBorder" id="sideBar">
 				<div id="infoTabTabs">
 					<!--I will not pick a better name.-->
 					<button
@@ -133,6 +166,15 @@
 						then proceeded to get really invested in.<br /><br />ETA on that is
 						Winter Break!
 					</p>
+				</div>
+				<hr />
+				<div id="returnButton">
+					<button
+						class="hasBorder tabButton"
+						onclick="location.href='/index.html'"
+					>
+						Home
+					</button>
 				</div>
 			</div>
 			<div class="hasBorder" id="openFL" oncontextmenu="return false;">
