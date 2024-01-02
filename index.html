@@ -2,22 +2,102 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Tiny Gardens - Online</title>
-		<link rel="stylesheet" href="/styles/retro.css" />
-		<link rel="shortcut icon" type="image/png" href="./favicon.png" />
-
-		<meta
-			id="viewport"
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		<title>Deiniol.ca Index</title>
+		<link rel="stylesheet" href="styles/retro.css" />
+		<link
+			rel="shortcut icon"
+			type="image/png"
+			href="tiny_gardens/assets/graphics/ui/uCREDITS.png"
 		/>
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<script type="text/javascript" src="./Tiny-Gardens.js"></script>
+
+		<style>
+			header,
+			.imageLabel {
+				text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+					2px 2px 0 #000;
+			}
+
+			body {
+				padding: 5%;
+			}
+
+			#siteContainer {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-evenly;
+				margin: 10%;
+			}
+
+			.tileLink {
+				position: relative;
+				display: inline-block; /* or 'block' depending on your layout */
+				width: 20%;
+			}
+
+			.tileLink img {
+				width: 100%;
+			}
+
+			.imageLabel {
+				text-align: center;
+				position: absolute;
+				top: 50%; /* Adjust as needed */
+				left: 50%; /* Adjust as needed */
+				transform: translate(-50%, -50%); /* Centers the label on the image */
+				color: whitesmoke; /* Change the color as needed */
+				font-size: 2rem; /* Adjust the font size as needed */
+			}
+		</style>
+
+		<script>
+			// Function to change the image source
+			function changeImage() {
+				document.getElementById("tileImage").src =
+					"/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png";
+			}
+
+			// Check if the link has been visited (using local storage)
+			if (localStorage.getItem("visited")) {
+				changeImage();
+			}
+
+			// Add event listener to all elements with the 'tileLink' class
+			document.querySelectorAll(".tileLink").forEach(function (link) {
+				link.addEventListener("click", function () {
+					localStorage.setItem("visited", "true");
+					changeImage();
+				});
+			});
+		</script>
 	</head>
 
 	<body>
-		<div class="siteContainer">
-			<h1>If you're seeing this, you left your lights on.</h1>
+		<header>
+			<h1>[ deiniol.ca ]</h1>
+		</header>
+		<div id="siteContainer">
+			<a class="tileLink" id="infoLink" href="tiny_gardens/game.html">
+				<span class="imageLabel">Info</span>
+				<img
+					id="tileImage"
+					src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
+					alt="Tiny Gardens Info Link"
+				/>
+			</a>
+			<a class="tileLink" id="gameLink" href="tiny_gardens/game.html">
+				<span class="imageLabel">Tiny Gardens</span>
+				<img
+					src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
+					alt="Tiny Gardens Game Link"
+				/>
+			</a>
+			<a class="tileLink" id="storalLink" href="tiny_gardens/game.html">
+				<span class="imageLabel">Writings</span>
+				<img
+					src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
+					alt="Tiny Gardens Storal Link"
+				/>
+			</a>
 		</div>
 	</body>
 </html>

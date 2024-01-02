@@ -40,6 +40,12 @@ hr {
 	border-color: whitesmoke;
 }
 
+header {
+	margin: auto;
+	text-align: center;
+	font-size: xx-large;
+}
+
 .hasBorder {
 	border-color: whitesmoke;
 	border-radius: 0.5rem;
