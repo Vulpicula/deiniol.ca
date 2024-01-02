@@ -11,14 +11,13 @@
 		/>
 
 		<style>
-			header,
-			.imageLabel {
-				text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
-					2px 2px 0 #000;
-			}
-
 			body {
 				padding: 5%;
+			}
+
+			.hasShadow {
+				text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+					2px 2px 0 #000;
 			}
 
 			.seperator {
@@ -78,12 +77,12 @@
 
 	<body>
 		<header>
-			<h1>[ deiniol.ca ]</h1>
+			<h1 class="hasShadow">[ deiniol.ca ]</h1>
 		</header>
 		<div id="siteContainer">
 			<div id="tileButtons">
 				<a class="tileLink" href="personal/404.html">
-					<span class="imageLabel">Info</span>
+					<span class="imageLabel hasShadow">Info</span>
 					<img
 						id="tileImage"
 						src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
@@ -91,21 +90,21 @@
 					/>
 				</a>
 				<a class="tileLink" href="tiny_gardens/game.html">
-					<span class="imageLabel">Tiny Gardens</span>
+					<span class="imageLabel hasShadow">Tiny Gardens</span>
 					<img
 						src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
 						alt="Tiny Gardens."
 					/>
 				</a>
 				<a class="tileLink" href="storal/404.html">
-					<span class="imageLabel">Writings</span>
+					<span class="imageLabel hasShadow">Writings</span>
 					<img
 						src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
 						alt="Personal writings."
 					/>
 				</a>
 				<a class="tileLink" href="https://horizons-server.org/">
-					<span class="imageLabel">Horizons</span>
+					<span class="imageLabel hasShadow">Horizons</span>
 					<img
 						src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
 						alt="Horizons Server link."
