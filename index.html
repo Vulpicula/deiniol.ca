@@ -21,11 +21,12 @@
 				padding: 5%;
 			}
 
-			#tileButtons {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-evenly;
-				margin-top: 4rem;
+			.seperator {
+				margin: 2rem;
+			}
+
+			.seperator hr {
+				width: 50%;
 			}
 
 			.tileLink {
@@ -48,6 +49,13 @@
 				color: whitesmoke; /* Change the color as needed */
 				font-size: 2rem; /* Adjust the font size as needed */
 				text-wrap: nowrap;
+			}
+
+			#tileButtons {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-evenly;
+				margin-top: 4rem;
 			}
 
 			@media (max-aspect-ratio: 1/1) {
@@ -103,6 +111,9 @@
 						alt="Horizons Server link."
 					/>
 				</a>
+			</div>
+			<div class="seperator">
+				<hr />
 			</div>
 		</div>
 	</body>
