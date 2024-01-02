@@ -10,7 +10,6 @@
 	font-style: normal;
 }
 
-html,
 body {
 	padding: 0.5rem;
 	height: 100%;
@@ -24,8 +23,6 @@ body {
 	background-repeat: no-repeat;
 	background-size: auto;
 	color: whitesmoke;
-
-	overflow: hidden;
 }
 
 body a {
