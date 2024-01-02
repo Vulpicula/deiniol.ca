@@ -15,9 +15,6 @@ body {
 	height: 100%;
 	font-family: "Nokia Cellphone FC Small", "Monsterrat", "Courier New", Courier,
 		monospace;
-}
-
-body {
 	background-image: linear-gradient(darkblue, black);
 	background-color: black;
 	background-repeat: no-repeat;
