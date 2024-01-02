@@ -21,17 +21,18 @@
 				padding: 5%;
 			}
 
-			#siteContainer {
+			#tileButtons {
 				display: flex;
 				flex-direction: row;
 				justify-content: space-evenly;
-				margin: 10%;
+				margin-top: 4rem;
 			}
 
 			.tileLink {
 				position: relative;
 				display: inline-block; /* or 'block' depending on your layout */
 				width: 20%;
+				max-width: 500px;
 			}
 
 			.tileLink img {
@@ -46,29 +47,25 @@
 				transform: translate(-50%, -50%); /* Centers the label on the image */
 				color: whitesmoke; /* Change the color as needed */
 				font-size: 2rem; /* Adjust the font size as needed */
+				text-wrap: nowrap;
+			}
+
+			@media (max-aspect-ratio: 1/1) {
+				body {
+					padding: 0%;
+				}
+
+				#tileButtons {
+					align-items: center;
+					flex-direction: column;
+				}
+
+				.tileLink {
+					width: 25%;
+					margin: 0.5rem;
+				}
 			}
 		</style>
-
-		<script>
-			// Function to change the image source
-			function changeImage() {
-				document.getElementById("tileImage").src =
-					"/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png";
-			}
-
-			// Check if the link has been visited (using local storage)
-			if (localStorage.getItem("visited")) {
-				changeImage();
-			}
-
-			// Add event listener to all elements with the 'tileLink' class
-			document.querySelectorAll(".tileLink").forEach(function (link) {
-				link.addEventListener("click", function () {
-					localStorage.setItem("visited", "true");
-					changeImage();
-				});
-			});
-		</script>
 	</head>
 
 	<body>
@@ -76,28 +73,37 @@
 			<h1>[ deiniol.ca ]</h1>
 		</header>
 		<div id="siteContainer">
-			<a class="tileLink" id="infoLink" href="tiny_gardens/game.html">
-				<span class="imageLabel">Info</span>
-				<img
-					id="tileImage"
-					src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
-					alt="Tiny Gardens Info Link"
-				/>
-			</a>
-			<a class="tileLink" id="gameLink" href="tiny_gardens/game.html">
-				<span class="imageLabel">Tiny Gardens</span>
-				<img
-					src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
-					alt="Tiny Gardens Game Link"
-				/>
-			</a>
-			<a class="tileLink" id="storalLink" href="tiny_gardens/game.html">
-				<span class="imageLabel">Writings</span>
-				<img
-					src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
-					alt="Tiny Gardens Storal Link"
-				/>
-			</a>
+			<div id="tileButtons">
+				<a class="tileLink" href="personal/404.html">
+					<span class="imageLabel">Info</span>
+					<img
+						id="tileImage"
+						src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
+						alt="Personal info."
+					/>
+				</a>
+				<a class="tileLink" href="tiny_gardens/game.html">
+					<span class="imageLabel">Tiny Gardens</span>
+					<img
+						src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
+						alt="Tiny Gardens."
+					/>
+				</a>
+				<a class="tileLink" href="storal/404.html">
+					<span class="imageLabel">Writings</span>
+					<img
+						src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
+						alt="Personal writings."
+					/>
+				</a>
+				<a class="tileLink" href="https://horizons-server.org/">
+					<span class="imageLabel">Horizons</span>
+					<img
+						src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
+						alt="Horizons Server link."
+					/>
+				</a>
+			</div>
 		</div>
 	</body>
 </html>
