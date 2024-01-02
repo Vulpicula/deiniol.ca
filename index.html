@@ -21,17 +21,18 @@
 				padding: 5%;
 			}
 
-			#siteContainer {
+			#tileButtons {
 				display: flex;
 				flex-direction: row;
 				justify-content: space-evenly;
-				margin: 10%;
+				margin-top: 4rem;
 			}
 
 			.tileLink {
 				position: relative;
 				display: inline-block; /* or 'block' depending on your layout */
 				width: 20%;
+				max-width: 500px;
 			}
 
 			.tileLink img {
@@ -48,6 +49,22 @@
 				font-size: 2rem; /* Adjust the font size as needed */
 				text-wrap: nowrap;
 			}
+
+			@media (max-aspect-ratio: 1/1) {
+				body {
+					padding: 0%;
+				}
+
+				#tileButtons {
+					align-items: center;
+					flex-direction: column;
+				}
+
+				.tileLink {
+					width: 25%;
+					margin: 0.5rem;
+				}
+			}
 		</style>
 	</head>
 
@@ -56,35 +73,37 @@
 			<h1>[ deiniol.ca ]</h1>
 		</header>
 		<div id="siteContainer">
-			<a class="tileLink" href="personal/404.html">
-				<span class="imageLabel">Info</span>
-				<img
-					id="tileImage"
-					src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
-					alt="Personal info."
-				/>
-			</a>
-			<a class="tileLink" href="tiny_gardens/game.html">
-				<span class="imageLabel">Tiny Gardens</span>
-				<img
-					src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
-					alt="Tiny Gardens."
-				/>
-			</a>
-			<a class="tileLink" href="storal/404.html">
-				<span class="imageLabel">Writings</span>
-				<img
-					src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
-					alt="Personal writings."
-				/>
-			</a>
-			<a class="tileLink" href="https://horizons-server.org/">
-				<span class="imageLabel">Horizons</span>
-				<img
-					src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
-					alt="Horizons Server link."
-				/>
-			</a>
+			<div id="tileButtons">
+				<a class="tileLink" href="personal/404.html">
+					<span class="imageLabel">Info</span>
+					<img
+						id="tileImage"
+						src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
+						alt="Personal info."
+					/>
+				</a>
+				<a class="tileLink" href="tiny_gardens/game.html">
+					<span class="imageLabel">Tiny Gardens</span>
+					<img
+						src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
+						alt="Tiny Gardens."
+					/>
+				</a>
+				<a class="tileLink" href="storal/404.html">
+					<span class="imageLabel">Writings</span>
+					<img
+						src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
+						alt="Personal writings."
+					/>
+				</a>
+				<a class="tileLink" href="https://horizons-server.org/">
+					<span class="imageLabel">Horizons</span>
+					<img
+						src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
+						alt="Horizons Server link."
+					/>
+				</a>
+			</div>
 		</div>
 	</body>
 </html>
