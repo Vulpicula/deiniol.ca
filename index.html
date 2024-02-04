@@ -5,9 +5,9 @@
 		<title>Deiniol.ca Index</title>
 		<link rel="stylesheet" href="styles/retro.css" />
 		<link
-			rel="shortcut icon"
+			rel="icon"
 			type="image/png"
-			href="tiny_gardens/assets/graphics/ui/uCREDITS.png"
+			href="./tiny_gardens/assets/graphics/ui/uCREDITS.png"
 		/>
 
 		<style>
@@ -18,7 +18,7 @@
 
 			.tileLink {
 				position: relative;
-				display: inline-block; /* or 'block' depending on your layout */
+				display: inline-block;
 				width: 15%;
 				max-width: 400px;
 			}
@@ -30,11 +30,11 @@
 			.imageLabel {
 				text-align: center;
 				position: absolute;
-				top: 50%; /* Adjust as needed */
-				left: 50%; /* Adjust as needed */
-				transform: translate(-50%, -50%); /* Centers the label on the image */
-				color: whitesmoke; /* Change the color as needed */
-				font-size: 2rem; /* Adjust the font size as needed */
+				top: 50%;
+				left: 50%; 
+				transform: translate(-50%, -50%); 
+				color: whitesmoke;
+				font-size: 2rem;
 				text-wrap: nowrap;
 			}
 
@@ -51,6 +51,18 @@
 				margin-top: 4rem;
 			}
 
+			@media (max-width: 1200px ){
+				.imageLabel {
+					font-size: 1.5rem;
+				}
+			}
+
+			@media (max-width: 1000px ){
+				.imageLabel {
+					font-size: 1rem;
+				}
+			}
+
 			@media (max-aspect-ratio: 1/1) {
 				body {
 					padding: 0%;
@@ -59,6 +71,10 @@
 				#tileButtons {
 					align-items: center;
 					flex-direction: column;
+				}
+
+				.imageLabel {
+					font-size: 1.5rem;
 				}
 
 				.tileLink {
@@ -75,40 +91,33 @@
 		</header>
 		<div id="siteContainer">
 			<div id="tileButtons">
-				<a class="tileLink" href="personal/404.html">
+				<a class="tileLink" href="./personal/info.html">
 					<span class="imageLabel hasShadow">Info</span>
 					<img
 						id="tileImage"
-						src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
+						src="./tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
 						alt="Personal info."
 					/>
 				</a>
-				<a class="tileLink" href="tiny_gardens/game.html">
+				<a class="tileLink" href="./tiny_gardens/game.html">
 					<span class="imageLabel hasShadow">Tiny Gardens</span>
 					<img
-						src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
+						src="./tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
 						alt="Tiny Gardens."
-					/>
-				</a>
-				<a class="tileLink" href="storal/404.html">
-					<span class="imageLabel hasShadow">Writings</span>
-					<img
-						src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
-						alt="Personal writings."
 					/>
 				</a>
 				<a class="tileLink" href="https://horizons-server.org/">
 					<span class="imageLabel hasShadow">Horizons</span>
 					<img
-						src="/tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
+						src="./tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
 						alt="Horizons Server link."
 					/>
 				</a>
-				<a class="tileLink" href="misc/404.html">
+				<a class="tileLink" href="./misc/404.html">
 					<span class="imageLabel hasShadow">Other Projects</span>
 					<img
 						id="tileImage"
-						src="/tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
+						src="./tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
 						alt="Personal info."
 					/>
 				</a>
