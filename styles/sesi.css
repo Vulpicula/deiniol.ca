@@ -1,0 +1,21 @@
+@font-face {
+	font-family: "Commodore Angled";
+	src: url("/sesi/assets/misc/commodoreangled.eot?#iefix")
+			format("embedded-opentype"),
+		url("/sesi/assets/misc/commodoreangled.woff") format("woff"),
+		url("/sesi/assets/misc/commodoreangled.ttf") format("truetype"),
+		url("/sesi/assets/misc/commodoreangled.svg#Commodore%20Angled")
+			format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	padding: 0.5rem;
+	height: 100%;
+	font-family: "Commodore Angled", "Courier New", Courier,
+		monospace;
+	background-color: #111;
+	background-size: auto;
+	color: whitesmoke;
+}

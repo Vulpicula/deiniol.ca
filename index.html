@@ -1,129 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Deiniol.ca Index</title>
-		<link rel="stylesheet" href="styles/retro.css" />
-		<link
-			rel="icon"
-			type="image/png"
-			href="./tiny_gardens/assets/graphics/ui/uCREDITS.png"
-		/>
 
-		<style>
-			.hasShadow {
-				text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
-					2px 2px 0 #000;
+<head>
+	<meta charset="utf-8" />
+	<title>Deiniol.ca Index</title>
+	<link rel="stylesheet" href="styles/sesi.css" />
+	<link rel="icon" type="image/png" href="./tiny_gardens/assets/graphics/ui/uCREDITS.png" />
+
+	<style>
+		html,
+		body {
+			height: 100%;
+		}
+
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #111;
+			min-height: 900px;
+			overflow: hidden;
+		}
+
+		header {
+			margin: auto;
+			text-align: center;
+			font-size: xx-large;
+			text-wrap: nowrap;
+		}
+
+		.siteContainer {
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+		}
+
+		#screen {
+			position: relative;
+			background: black;
+			width: min(1366px);
+			height: min(768px);
+			border: 2px solid white;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+
+			/* CRT effects - shadows and glow! */
+			box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+			filter: contrast(1.1) saturate(1.2) brightness(0.9);
+		}
+
+		/* Scanlines */
+		#screen::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: repeating-linear-gradient(to bottom,
+					rgba(255, 255, 255, 0.05) 0px,
+					rgba(255, 255, 255, 0.05) 1px,
+					transparent 2px);
+			pointer-events: none;
+			z-index: 2;
+		}
+
+		/* Subtle flicker */
+		#screen::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.02);
+			animation: flicker 0.15s infinite;
+			pointer-events: none;
+			z-index: 3;
+		}
+
+		@keyframes flicker {
+			0% {
+				opacity: 0.1;
 			}
 
-			.tileLink {
-				position: relative;
-				display: inline-block;
-				width: 15%;
-				max-width: 400px;
+			50% {
+				opacity: 0.2;
 			}
 
-			.tileLink img {
-				width: 100%;
+			100% {
+				opacity: 0.1;
 			}
+		}
 
-			.imageLabel {
-				text-align: center;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				color: whitesmoke;
-				font-size: 2rem;
-				text-wrap: nowrap;
-			}
+		header h1 {
+			text-align: center;
+			margin: 20px;
+			text-shadow: 0 0 8px white;
+			font-family: monospace;
+		}
+	</style>
+</head>
 
-			#siteContainer {
-				margin: 4rem;
-				margin-top: 8rem;
-				margin-bottom: 8rem;
-			}
+<body>
+	<div class="siteContainer">
+		<div id="screen">
+			<div id="titleArea">
+				<header>
+					<h1>[ deiniol.ca ]</h1>
+				</header>
+			</div>
+			<div id="optionsArea">
 
-			#tileButtons {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-evenly;
-				margin-top: 4rem;
-			}
-
-			@media (max-width: 1200px) {
-				.imageLabel {
-					font-size: 1.5rem;
-				}
-			}
-
-			@media (max-width: 1000px) {
-				.imageLabel {
-					font-size: 1rem;
-				}
-			}
-
-			@media (max-aspect-ratio: 1/1) {
-				body {
-					padding: 0%;
-				}
-
-				#tileButtons {
-					align-items: center;
-					flex-direction: column;
-				}
-
-				.imageLabel {
-					font-size: 1.5rem;
-				}
-
-				.tileLink {
-					width: 25%;
-					margin: 0.5rem;
-				}
-			}
-		</style>
-	</head>
-
-	<body>
-		<header>
-			<h1 class="hasShadow">[ deiniol.ca ]</h1>
-		</header>
-		<div id="siteContainer">
-			<div id="tileButtons">
-				<a class="tileLink" href="./personal/info.html">
-					<span class="imageLabel hasShadow">Info</span>
-					<img
-						class="tileImage"
-						src="./tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
-						alt="Personal info."
-					/>
-				</a>
-				<a class="tileLink" href="./tiny_gardens/game.html">
-					<span class="imageLabel hasShadow">Tiny Gardens</span>
-					<img
-						class="tileImage"
-						src="./tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
-						alt="Tiny Gardens."
-					/>
-				</a>
-				<a class="tileLink" href="https://horizons-server.org/">
-					<span class="imageLabel hasShadow">Horizons</span>
-					<img
-						class="tileImage"
-						src="./tiny_gardens/assets/graphics/ui/uFILLEDSLOT.png"
-						alt="Horizons Server link."
-					/>
-				</a>
-				<a class="tileLink" href="./misc/404.html">
-					<span class="imageLabel hasShadow">Other Projects</span>
-					<img
-						class="tileImage"
-						src="./tiny_gardens/assets/graphics/ui/uEMPTYSLOT.png"
-						alt="Personal info."
-					/>
-				</a>
 			</div>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>
