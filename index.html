@@ -25,8 +25,6 @@
 		}
 
 		header {
-			margin: auto;
-			text-align: center;
 			font-size: xx-large;
 
 			text-align: center;
@@ -50,7 +48,6 @@
 			height: min(768px);
 			border: 2px solid white;
 			display: flex;
-			flex-direction: column;
 			overflow: hidden;
 
 			/* CRT effects - shadows and glow! */
@@ -102,11 +99,12 @@
 			}
 		}
 
-		header {
-			text-align: center;
-			margin: 20px;
-			text-shadow: 0 0 8px white;
-			font-family: monospace;
+		#titleArea {
+			width: 70%;
+		}
+
+		#sideArea {
+			width: 30%;
 		}
 	</style>
 </head>
@@ -114,13 +112,29 @@
 <body>
 	<div class="siteContainer">
 		<div id="screen">
-			<div id="titleArea">
+			<div id="titleArea" class="hasSubBorder">
 				<header>
 					<h1>[ deiniol.ca ]</h1>
 				</header>
 			</div>
-			<div id="optionsArea">
-
+			<div id="sideArea" class="hasSubBorder">
+				<div id="versionSection">
+					<p>[VERSION (Alpha 1.0.1)]</p>
+				</div>
+				<div id="optionsSection" class="hasSubBorder">
+					<li>START GAME</li>
+					<li>LOAD GAME</li>
+					<li>OPTIONS</li>
+					<li>CREDITS</li>
+					<li>DISCORD</li>
+					<li>WIKI</li>
+					<li>EXIT GAME</li>
+				</div>
+				<div id="flavourSection">
+					<p>
+						Flavour flavour flavour.
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
