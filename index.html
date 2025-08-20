@@ -41,6 +41,11 @@
 			width: 100%;
 		}
 
+		.hasSubBorder {
+			border: 1px;
+			border-style: solid;
+		}
+
 		#screen {
 			position: relative;
 			background: black;
@@ -49,6 +54,7 @@
 			border: 2px solid white;
 			display: flex;
 			overflow: hidden;
+			text-align: center;
 
 			/* CRT effects - shadows and glow! */
 			box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
@@ -100,11 +106,36 @@
 		}
 
 		#titleArea {
-			width: 70%;
+			flex: 7;
 		}
 
 		#sideArea {
-			width: 30%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex: 3;
+		}
+
+		#sideArea div {
+			width: 100%;
+		}
+
+		#sideArea li {
+			list-style: none;
+			font-size: x-large;
+			line-height: 3rem;
+		}
+
+		#versionSection {
+			flex: 1;
+		}
+
+		#optionsSection {
+			flex: 8;
+		}
+
+		#flavourSection {
+			flex: 1;
 		}
 	</style>
 </head>
@@ -118,7 +149,7 @@
 				</header>
 			</div>
 			<div id="sideArea" class="hasSubBorder">
-				<div id="versionSection">
+				<div id="versionSection" class="hasSubBorder">
 					<p>[VERSION (Alpha 1.0.1)]</p>
 				</div>
 				<div id="optionsSection" class="hasSubBorder">
@@ -130,7 +161,7 @@
 					<li>WIKI</li>
 					<li>EXIT GAME</li>
 				</div>
-				<div id="flavourSection">
+				<div id="flavourSection" class="hasSubBorder">
 					<p>
 						Flavour flavour flavour.
 					</p>
