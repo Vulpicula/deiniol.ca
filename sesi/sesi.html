@@ -1,43 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	
+
 	<meta charset="utf-8">
-	
+
 	<title>SESI Exchange</title>
-	
-	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<meta id="viewport" name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	
-	
+
+
 	<link rel="shortcut icon" type="image/png" href="./favicon.png">
-	
-	
+	<link rel="stylesheet" href="/styles/sesi.css" />
+
 	<script type="text/javascript" src="./SESI-Exchange.js"></script>
-	
+
 	<script>
-		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, { capture: false, passive: false });
+		window.addEventListener("touchmove", function (event) { event.preventDefault(); }, { capture: false, passive: false });
 		if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
-			var meta = document.getElementById ("viewport");
-			meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+			var meta = document.getElementById("viewport");
+			meta.setAttribute('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
 		}
 	</script>
-	
+
 	<style>
-		html,body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-		#openfl-content { background: #000000; width: 1366px; height: 768px; }
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		#openfl-content {
+			background: #000000;
+			width: 1366px;
+			height: 768px;
+		}
+
 		@font-face {
 			font-family: 'Commodore 64 Angled';
 			src: url('assets/fonts/commodoreangled.ttf') format('truetype');
 			font-weight: normal;
 			font-style: normal;
 		}
+
 		@font-face {
 			font-family: 'Nokia Cellphone FC Small';
 			src: url('flixel/fonts/nokiafc22.ttf') format('truetype');
 			font-weight: normal;
 			font-style: normal;
 		}
+
 		@font-face {
 			font-family: 'Monsterrat';
 			src: url('flixel/fonts/monsterrat.ttf') format('truetype');
@@ -45,18 +61,196 @@
 			font-style: normal;
 		}
 
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: auto;
+			margin-bottom: auto;
+			min-height: 900px;
+			overflow: hidden;
+		}
+
+		header {
+			font-size: xx-large;
+			text-align: center;
+			text-shadow: 0 0 8px white;
+		}
+
+		hr {
+			opacity: 50%;
+		}
+
+		a:any-link {
+			color: white;
+		}
+
+		.siteContainer {
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+		}
+
+		.hasSubBorder {
+			border: 1px;
+			border-style: solid;
+		}
+
+		#screen {
+			position: relative;
+			background: black;
+			width: min(1366px);
+			height: min(768px);
+			border: 2px solid white;
+			display: flex;
+			overflow: hidden;
+			text-align: center;
+
+			/* CRT effects - shadows and glow! */
+			box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+			filter: contrast(1.1) saturate(1.2) brightness(0.9);
+		}
+
+		/* Scanlines */
+		#screen::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: repeating-linear-gradient(to bottom,
+					rgba(255, 255, 255, 0.05) 0px,
+					rgba(255, 255, 255, 0.05) 1px,
+					transparent 2px);
+			pointer-events: none;
+			z-index: 2;
+		}
+
+		/* Subtle flicker */
+		#screen::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.02);
+			animation: flicker 0.15s infinite;
+			pointer-events: none;
+			z-index: 3;
+		}
+
+		@keyframes flicker {
+			0% {
+				opacity: 0.1;
+			}
+
+			50% {
+				opacity: 0.2;
+			}
+
+			100% {
+				opacity: 0.1;
+			}
+		}
+
+		/* Title Area */
+
+		#titleArea {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex: 8;
+		}
+
+		#titleText {
+			flex: 8;
+			padding: 20%;
+		}
+
+		#titleText h1 {
+			font-size: 3.3rem;
+		}
+
+		#titleSubTitle {
+			flex: 2;
+		}
+
+		/* Side Area*/
+
+		#sideArea {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex: 3;
+		}
+
+		#sideArea div {
+			width: 100%;
+		}
+
+		#sideArea li {
+			list-style: none;
+			font-size: x-large;
+			line-height: 3rem;
+		}
+
+		#versionSection {
+			flex: 1;
+		}
+
+		#optionsSection {
+			flex: 99;
+		}
+
+		#flavourSection {
+			flex: 1;
+		}
 	</style>
-	
+
 </head>
+
 <body>
-	
-	<noscript>This webpage makes extensive use of JavaScript. Please enable JavaScript in your web browser to view this page.</noscript>
-	
-	<div id="openfl-content"></div>
-	
-	<script type="text/javascript">
-		lime.embed ("SESI-Exchange", "openfl-content", 1366, 768, { parameters: {} });
-	</script>
-	
+	<div class="siteContainer">
+		<div id="screen">
+			<div id="titleArea" class="hasSubBorder">
+				<noscript>This webpage makes extensive use of JavaScript. Please enable JavaScript in your web browser
+					to view this page.</noscript>
+
+				<div id="openfl-content"></div>
+
+				<script type="text/javascript">
+					lime.embed("SESI-Exchange", "openfl-content", 1366, 768, { parameters: {} });
+				</script>
+			</div>
+			<div id="sideArea" class="hasSubBorder">
+				<div id="versionSection" class="hasSubBorder">
+					<p>[VERSION (Alpha 1.1.0)]</p>
+				</div>
+				<div id="optionsSection" class="hasSubBorder">
+					<br>ABOUT ME
+					<li><a href="personal/info.html">INFO</a></li>
+					<hr>
+					GAMES
+					<li><a href="tiny_gardens/tg.html">TINY GARDENS</a></li>
+					<li><a href="sesi/sesi.html">SESI</a></li>
+					<hr>
+					OTHER
+					<li><a href="https://horizons-server.org/">HORIZONS</a></li>
+					<li>OTHER PROJECTS</li>
+					<li>OTHER SITES</li>
+					<hr>
+				</div>
+				<div id="flavourSection" class="hasSubBorder">
+					<p>
+						Hello! I'm an index page!
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
